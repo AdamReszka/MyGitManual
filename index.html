@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Git cheat sheet</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <p class="single-row">
+    <span>
+      git init
+    </span>
+    - zainicjowanie projektu lub rozpoczęcie pracy z git w istniejącym lokalnie projekcie
+  </p>
+  <p class="single-row">
+    <span>
+      git init projectName
+    </span>
+    - zainicjowanie projektu o wybranej nazwie utworzy folder dla projektu
+  </p>
+  <p class="single-row">
+    <span>
+      git status
+    </span>
+    - sprawdzenie statusu zmian, wylistowanie plików w których zostały dokonae zmiany
+  </p>
+  <p class="single-row">
+    <span>
+      git add nazwa.pliku
+    </span>
+    Dopisanie zmian z danego pliku do stage'a czyli do przestrzeni z której są zapisywane i wysyłane. Nie musimy zapisywać wszystkiego dlatego umieszczając zmiany w stage'u określamy, że to one będą przeznaczone do zapisu.
+  </p>
+  <p class="single-row">
+    <span>
+      git add .
+    </span>
+    lub
+    <span>
+      git add -A
+    </span>
+    - przygotowanie wszystkich zmian do zapisu
+  </p>
+  <p class="single-row">
+    <span>
+      git checkout -- .
+    </span>
+    - odrzucenie, usunięcie wszystkich wprowadzonych niezapisanych do tej pory zmian
+  </p>
+  <p class="single-row">
+    <span>
+      git checkout -- file.name
+    </span>
+    - odrzucenie, usunięcie wprowadzonych niezapisanych do tej pory zmian ze wskazanego pliku
+  </p>
+  <p class="single-row">
+    <span>
+      git commit
+    </span>
+    - lokalne zatwierdzenie zmian z poczekalni (stage)
+  </p>
+  <p class="single-row">
+    <span>
+      git commit -v
+    </span>
+    - lokalne zapisanie zmian ze stage'a, dzięki fladze -v do komentarza zostaną dodane wiersze, które zostały zmienione
+  </p>
+  <p class="single-row">
+    <span>
+      git commit -m "example message content"
+    </span>
+    - lokalne zapisanie zmian ze stage'a, dzięki fladze message możemy opisać jakie zmiany wprowadziliśmy
+  </p>
+  <p class="single-row">
+    <span>
+      git commit -a -m "example message content"
+    </span>
+    - lokalne zapisanie zmian z automatycznym dodaniem zmian do stage'a, nie trzeba wyknywać "git add"
+  </p>
+  <p class="single-row">
+    <span>
+      git commit --amend
+    </span>
+     - dogrywa ostatnie zmiany aktualizując ostatni commit (nie tworzy nowego)
+  </p>
+  <p class="single-row">
+    <span>
+      git config --global user.name "Jan Kowalski"
+    </span>
+    - lokalne ustawienie nazwy użytkownika konieczne do jego identyfikacji
+  </p>
+  <p class="single-row">
+    <span>
+      git config --global user.email "jan.kowalski@example.com"
+    </span>
+    - lokalne ustawienia adresu email użytkownika
+  </p>
+  <p class="single-row">
+    <span>
+      git config --list
+    </span>
+     - listuje bieżące ustawienia konfiguracji danego projektu
+  </p>
+  <p class="single-row">
+    <span>
+      git clone git://github.com/jankowalski/nowyprojekt.git
+    </span>
+    - klonowanie do własnej lokalizacji istniejącego zdalnie repozytorium
+  </p>
+  <p class="single-row">
+    <span>
+      git clone git://github.com/jankowalski/nowyprojekt.git directoryName
+    </span>
+    - klonowanie do własnej lokalizacji istniejącego zdalnie repozytorium plus własna definicja nazwy lokalizacji
+  </p>
+  <p class="single-row">
+    <span>
+      git remote
+    </span>
+     - pokazuje nazwy wszystkich aktualnie zdefiniowanych serwerów dla zdalnych repozytoriów (chociaż jeden)
+  </p>
+  <p class="single-row">
+    <span>
+      git remote -v
+    </span>
+     - dodatkowo pokazuje zapamiętany pełen adres URL dla każdej lokalizacji
+  </p>
+  <p class="single-row">
+    <span>
+      git remote add origin git://github.com/jankowalski/nowyprojekt.git
+    </span>
+    - przypisanie tego zdalnego repozytorium jako głównej ścieżki na której znajdzie się master branch i inne branche. Origin ustawiamy po to by nie powtarzać ciągle całego linku do repo.
+  </p>
+  <p class="single-row">
+    <span>
+      git remote set-url origin git://github.com/jankowalski/nowyprojekt.git
+    </span>
+    - zmiana na nowy, adresu zdalnego repozytorium.
+  </p>
+  <p class="single-row">
+    <span>
+      git remote show origin
+    </span>
+    - pokaże dodatkowe informacje o wybranym repo (adres URL czy info o śledzonej gałęzi)
+  </p>
+  <p class="single-row">
+    <span>
+      git remote rename stara.nazwa nowa.nazwa
+    </span>
+    - pozwala na zmianę odnośnika czyli skrótu przypisanego do repozytorium
+  </p>
+  <p class="single-row">
+    <span>
+      git remote rm moja.nazwa
+    </span>
+    - pozwala na zmianę usunięcie odnośnika
+  </p>
+  <p class="single-row">
+    <span>
+      git diff
+    </span>
+      - pokaże szczegółowo wszystkie zmiany, które nie trafiły jeszcze do poczekalni (stage)
+  </p>
+  <p class="single-row">
+    <span>
+      git diff --staged
+    </span>
+      - pokaże szczegółowo wszystkie zmiany w poczekalni (stage), które trafią do zatwierdzenia
+  </p>
+  <p class="single-row">
+    <span>
+      git fetch origin
+    </span>
+     - pobiera zmiany, których nie posiadasz ale w odróżnieniu od pulla nie wykonuje merga, jedynie pobiera zmiany
+  </p>
+  <p class="single-row">
+    <span>
+      git pull
+    </span>
+     - pobiera wszystkie najnowsze dane z serwera i dokonuje próby scalenia ich z lokalnym repo, scala je jeśli nie ma konfliktów
+  </p>
+  <p class="single-row">
+    <span>
+      git push origin master
+    </span>
+      - wysłanie zapisanych zmian na master branch zdalnego repozytorium
+  </p>
+  <p class="single-row">
+    <span>
+      git help "polecenie", git "polecenie" --help, man git-"polecenie" (np. git help config)
+    </span>
+       - uzyskanie pomocy w kwestii danego polecenia
+  </p>
+  <p class="single-row">
+    <span>
+      git rm nazwa.pliku
+    </span>
+     - usuwa plik z gita i z katalogu roboczego
+  </p>
+  <p class="single-row">
+    <span>
+      git rm -f nazwa.pliku
+    </span>
+     - usuwa plik, który był modyfikowany zmiany w nim nie zostały zapamiętane poprzez commit
+  </p>
+  <p class="single-row">
+    <span>
+      git rm --cached nazwa.pliku
+    </span>
+     - usunięcie pliku ze stage'a ale pozostawienie go na dysku. Można dzięki temu dodać potem swobodnie plik do .gitignore
+  </p>
+  <p class="single-row">
+    <span>
+      git rm log/\*.log
+    </span>
+     - zostaną usunięte wszystkie pliki o rozszerzeniu .log z katalogu log/
+  </p>
+  <p class="single-row">
+    <span>
+      git mv file_from file_to
+    </span>
+     - pomoże w zmianie nazwy pliku
+  </p>
+  <p class="single-row">
+    <span>
+      git log
+    </span>
+     - uruchamia podgląd historii zapisywanych zmian, zaczynając od najnowszych commitów
+  </p>
+  <p class="single-row">
+    <span>
+      git log -p -3
+    </span>
+     - pokaże szczegółowy podgląd zmian z ograniczeniem do trzech ostatnich commitów
+  </p>
+  <p class="single-row">
+    <span>
+      git log --stat
+    </span>
+     - pokaże podgląd zmian ze skróconymi statystykami commitów
+  </p>
+  <p class="single-row">
+    <span>
+      git log --pretty=oneline
+    </span>
+     - wyświetla wyniki w jednej linii, dodatkowo dostępne są jeszcze opcje "short", "full", "fuller", zawierają one więcej informacji
+  </p>
+  <p class="single-row">
+    <span>
+      git log --pretty=format:"%h - %an, %ar : %s"
+    </span>
+     - pozwala skonfigurować własne parametry wyświetlania (tutaj skrócona suma kontrolna, nazwisko autora, względna data i temat)
+  </p>
+  <p class="single-row">
+    <span>
+      git log --pretty=format:"%h" --graph
+    </span>
+     - dodatkowa oplca --graph tworzy graficzne odwzorowanie historii pracy a gałęziach
+  </p>
+  <p class="single-row">
+    <span>
+      git log --since=2.weeks
+    </span>
+      - pozwala ograniczyć wyniki wyszukiwania w czasie (since, after, until, before, author, committer)
+  </p>
+  <p class="single-row">
+    <span>
+      git reset HEAD file.name
+    </span>
+     - powoduje usunięcie z poczekalni pliku, który został tam dodany za pomocą git add
+  </p>
+  <p class="single-row">
+    <span>
+      git stash
+    </span>
+     -
+  </p>
+  <p class="single-row">
+    <span>
+      git tag
+    </span>
+     - wyświetla wszystkie etykiety w porządku alfabetycznym
+  </p>
+  <p class="single-row">
+    <span>
+      git tag -l 'v1.4.2.*'
+    </span>
+     - filtr wyświtla wszystkie tagi z serii 1.4.2 (np. 1.4.2.1, 1.4.2.2 itp)
+  </p>
+  <p class="single-row">
+    <span>
+      git tag -a v1.4 -m 'my version 1.4'
+    </span>
+     - dodanie etykiery opisanej (flaga -a), posiada ona sumę kontrolną i nazwisko osoby etykietującej
+  </p>
+  <p class="single-row">
+    <span>
+      git tag -s v1.5 -m 'my signed 1.5 tag'
+    </span>
+     - flaga -s pozwala dodać klucz GNU Privacy Guard (GPG)
+  </p>
+  <p class="single-row">
+    <span>
+      git show v1.5
+    </span>
+     - pokazuje szczegóły wybranej etykiety
+  </p>
+  <p class="single-row">
+    <span>
+      git tag v1.4-lw
+    </span>
+     - utworzenie etykiety lekkiej
+  </p>
+  <p class="single-row">
+    <span>
+      git tag -v [nazwa-etykiety]
+    </span>
+     - służy do weryfikacji poprawności etykiety, używa GPG
+  </p>
+  <p class="single-row">
+    <span>
+      git tag -a v.1.2 9fceb02
+    </span>
+     - możemy dodać etykietę do historycznego commita, dołączamy do niego fragment sumy kontrolnej
+  </p>
+  <p class="single-row">
+    <span>
+      git push origin [nazwa-etykiety]
+    </span>
+    aby umieścić etykiety na serwerze, należy je wypchnąć osobno
+  </p>
+  <p class="single-row">
+    <span>
+      git push origin --tags
+    </span>
+    Wysłanie na serwer wszystkich etykiet na raz
+  </p>
+  <p class="single-row">
+    <span>
+      git config --global alias.co checkout
+    </span>
+     - komenda alias.skrót pozwala ustawić skrót dla wybranego polecenia, używanie skrótów i aliasów przyspiesza pracę
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+  <p class="single-row">
+    <span>
+
+    </span>
+
+  </p>
+</body>
+</html>

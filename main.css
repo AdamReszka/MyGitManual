@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #263244;
+  font-family: 'Fira Mono', monospace;
+}
+p.single-row {
+  margin: 1rem 0 1rem 3rem;
+}
+p.single-row span {
+  font-weight: 700;
+  color: #ff6b00;
+}
